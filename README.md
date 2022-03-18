@@ -31,3 +31,19 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
      python3-babel python3-xdg python3-future python3-jinja2 python3-yaml \
      python3-sphinx python3-cups python3-pypdf2
 ```
+>Configuring the DB
+```bash
+# su - postgres
+---Create user for CMS
+# createuser --username=postgres --pwprompt cmsuser
+
+---Create Database for CMS
+# createdb --username=postgres --owner=cmsuser cmsdb
+
+---Grant roles for user to database
+# psql --username=postgres --dbname=cmsdb --command='ALTER SCHEMA public OWNER TO cmsuser'
+# psql --username=postgres --dbname=cmsdb --command='GRANT SELECT ON pg_largeobject TO cmsuser'
+
+---Create the database schema for CMS
+# cmsInitDB
+```
