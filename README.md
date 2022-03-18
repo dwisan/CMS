@@ -65,3 +65,5 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
  # on /user/local/etc/cms.ranking.conf
  change bind_address , username , password
 ```
+> Create systemd services for Services Running
+#
