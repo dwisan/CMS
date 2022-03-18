@@ -1,1 +1,1 @@
-# CMS
+CMS (Contest Management System)
