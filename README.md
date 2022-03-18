@@ -66,4 +66,61 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
  change bind_address , username , password
 ```
 > Create systemd services for Services Running
-#
+```bash
+--- Create systemd service for cmsLogService
+# touch /etc/systemd/system/logioi.service
+# nano /etc/systemd/system/logioi.service
+
+[Unit]
+Description=ioi service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=wisan
+ExecStart=/usr/local/bin/cmsLogService
+
+[Install]
+WantedBy=multi-user.target
+
+--- Create systemd Ranking Service
+# touch /etc/systemd/system/ranking.service
+# nano /etc/systemd/system/ranking.service
+
+[Unit]
+Description=ioi service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=wisan
+ExecStart=/usr/local/bin/cmsRankingWebServer
+
+[Install]
+WantedBy=multi-user.target
+
+---Create systemd service for ResourceService 
+# touch /etc/systemd/system/ioi.service
+# nano /etc/systemd/system/ioi.service
+
+[Unit]
+Description=ioi service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=wisan
+ExecStart=/usr/local/bin/cmsResourceService -a 1
+
+[Install]
+WantedBy=multi-user.target
+```
