@@ -31,6 +31,14 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
      python3-babel python3-xdg python3-future python3-jinja2 python3-yaml \
      python3-sphinx python3-cups python3-pypdf2
 ```
+> Change PostgreSQL accept the connection from different hosts
+```bash
+ # on postgresql.conf
+ listen_addresses = '127.0.0.1,172.18.111.202'
+ 
+ # on pg_hba.conf adding a line like
+ host  cmsdb  cmsuser  172.18.111.0/24  md5
+```
 >Configuring the DB
 ```bash
 # su - postgres
@@ -46,4 +54,14 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
 
 ---Create the database schema for CMS
 # cmsInitDB
+```
+> Configuring CMS
+```bash
+ # on /usr/local/etc/cms.conf
+ change Listening address to 172.18.111.202
+ change secret_key in WebServer _section
+ change rankings with username,password (as cms.ranking.conf) and address to ScoringService
+ 
+ # on /user/local/etc/cms.ranking.conf
+ change bind_address , username , password
 ```
