@@ -124,3 +124,16 @@ ExecStart=/usr/local/bin/cmsResourceService -a 1
 [Install]
 WantedBy=multi-user.target
 ```
+> Running CMS
+```bash
+# systemctl daemon-reload
+# systemctl start logioi.service
+# systemctl start ranking.service
+# systemctl start ioi.service
+```
+> Howto use
+```bash
+AdminWebServer : http://172.18.111.202:8889
+ContestWebServer : http://172.18.111.202:8888
+Ranking : http://172.18.111.202:8890
+```
