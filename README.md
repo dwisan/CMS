@@ -145,9 +145,19 @@ WantedBy=multi-user.target
 # sudo systemctl daemon-reload
 # sudo systemctl start logioi.service
 # sudo systemctl start ranking.service
-# systemctl start ioi.service
+--- Adding admin user for AdminWebServer
+# sudo cmsAddAdmin wisan
+# sudo cmsAdminWebServer
+result: username wisan and password {Password Generated}
+---Create Contest first shard number #1 on AdminWebServer : http://172.18.111.202:8889
+---change shard number of contest in /etc/systemd/system/ioi.service at last digit 
+
+ExecStart=/usr/local/bin/cmsResourceService -a 1 
+
+# sudo systemctl daemon-reload
+# sudo systemctl start ioi.service
 ```
-> Howto use
+> Howto Use
 ```bash
 AdminWebServer : http://172.18.111.202:8889
 ContestWebServer : http://172.18.111.202:8888
