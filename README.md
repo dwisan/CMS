@@ -3,6 +3,7 @@
 Linux distributions : Ubuntu 18.04
 CMS version 1.4.rc1 
 https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
+INTERFACE Adress : 172.18.111.203
 ```
 >Dependencies and available compilers
 ```bash
@@ -35,7 +36,7 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 > Change PostgreSQL accept the connection from different hosts
 ```bash
  # on /etc/postgresql/10/main/postgresql.conf
- listen_addresses = '127.0.0.1,172.18.111.202'
+ listen_addresses = '127.0.0.1,172.18.111.203'
  
  # on /etc/postgresql/10/main/pg_hba.conf adding a line like
  host  cmsdb  cmsuser  172.18.111.0/24  md5
@@ -65,12 +66,19 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 > Configuring CMS
 ```bash
  # on /usr/local/etc/cms.conf
- change Listening address to 172.18.111.202
- change secret_key in WebServer _section
- change rankings with username,password (as cms.ranking.conf) and address to ScoringService
+ change "core_services" replace localhost to 172.18.111.203
+ change Listening address to 172.18.111.203
+ change secret_key in WebServer _section with result 
+    # cd cms & python3 -c 'from cmscommon import crypto; print(crypto.get_hex_random_key())'
+ 
+ change "contest_listen_address": [""] to "contest_listen_address": ["172.18.111.203"]
+ change "admin_listen_address": "" to "admin_listen_address": "172.18.111.203"
+ change {username}:{password} in "rankings": ["http://{username}:{password}@172.18.111.203:8890/"] as same as /user/local/etc/cms.ranking.conf
  
  # on /user/local/etc/cms.ranking.conf
- change bind_address , username , password
+ change "bind_address": "" to "bind_address": "172.182.111.203"
+ change "username":   "{CHANGE ME}",
+ change "password":   "{CHANGE ME}",
 ```
 > Create systemd services for Services Running
 ```bash
