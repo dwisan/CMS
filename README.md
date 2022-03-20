@@ -20,6 +20,7 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
 ```bash
 # cd cms
 # sudo python3 prerequisites.py install
+Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 ```
 >To install CMS and its Python dependencies on Ubuntu
 ```bash
