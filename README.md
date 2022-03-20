@@ -59,7 +59,8 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 
 ---Change Config in  /usr/local/etc/cms.conf
  in "_section": "Database",
-"database": "postgresql+psycopg2://cmsuser:**CHANGE_PASSWORD**@172.18.111.203:5432/cmsdb",
+"database": "postgresql+psycopg2://cmsuser:**CHANGE_PASSWORD**@172.18.111.203:5432/cmsdb"
+
 ---Create the database schema for CMS
 # cmsInitDB
 ```
