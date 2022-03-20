@@ -84,8 +84,8 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 > Create systemd services for Services Running
 ```bash
 --- Create systemd service for cmsLogService
-# touch /etc/systemd/system/logioi.service
-# nano /etc/systemd/system/logioi.service
+# sudo touch /etc/systemd/system/logioi.service
+# sudo nano /etc/systemd/system/logioi.service
 
 [Unit]
 Description=ioi service
@@ -103,8 +103,8 @@ ExecStart=/usr/local/bin/cmsLogService
 WantedBy=multi-user.target
 
 --- Create systemd Ranking Service
-# touch /etc/systemd/system/ranking.service
-# nano /etc/systemd/system/ranking.service
+# sudo touch /etc/systemd/system/ranking.service
+# sudo nano /etc/systemd/system/ranking.service
 
 [Unit]
 Description=ioi service
@@ -122,8 +122,8 @@ ExecStart=/usr/local/bin/cmsRankingWebServer
 WantedBy=multi-user.target
 
 ---Create systemd service for ResourceService 
-# touch /etc/systemd/system/ioi.service
-# nano /etc/systemd/system/ioi.service
+# sudo touch /etc/systemd/system/ioi.service
+# sudo nano /etc/systemd/system/ioi.service
 
 [Unit]
 Description=ioi service
@@ -142,9 +142,9 @@ WantedBy=multi-user.target
 ```
 > Running CMS
 ```bash
-# systemctl daemon-reload
-# systemctl start logioi.service
-# systemctl start ranking.service
+# sudo systemctl daemon-reload
+# sudo systemctl start logioi.service
+# sudo systemctl start ranking.service
 # systemctl start ioi.service
 ```
 > Howto use
