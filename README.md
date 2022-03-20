@@ -34,15 +34,18 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 ```
 > Change PostgreSQL accept the connection from different hosts
 ```bash
- # on postgresql.conf
+ # on /etc/postgresql/10/main/postgresql.conf
  listen_addresses = '127.0.0.1,172.18.111.202'
  
- # on pg_hba.conf adding a line like
+ # on /etc/postgresql/10/main/pg_hba.conf adding a line like
  host  cmsdb  cmsuser  172.18.111.0/24  md5
+ 
+ # restart postgreSQL
+ # sudo service postgresql restart
 ```
 >Configuring the DB
 ```bash
-# su - postgres
+# sudo su - postgres
 ---Create user for CMS
 # createuser --username=postgres --pwprompt cmsuser
 
@@ -53,6 +56,9 @@ Type Y if you want me to automatically add "{SUDO USER}" to the cmsuser group: Y
 # psql --username=postgres --dbname=cmsdb --command='ALTER SCHEMA public OWNER TO cmsuser'
 # psql --username=postgres --dbname=cmsdb --command='GRANT SELECT ON pg_largeobject TO cmsuser'
 
+---Change Config in  /usr/local/etc/cms.conf
+ in "_section": "Database",
+"database": "postgresql+psycopg2://cmsuser:**CHANGE_PASSWORD**@172.18.111.203:5432/cmsdb",
 ---Create the database schema for CMS
 # cmsInitDB
 ```
