@@ -6,7 +6,7 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
 ```
 >Dependencies and available compilers
 ```bash
-# apt install build-essential openjdk-8-jdk-headless fp-compiler \
+# sudo apt install build-essential openjdk-8-jdk-headless fp-compiler \
     postgresql postgresql-client python3.6 cppreference-doc-en-html \
     cgroup-lite libcap-dev zip texlive-latex-base a2ps haskell-platform \
     rustc mono-mcs
