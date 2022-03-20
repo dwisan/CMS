@@ -19,12 +19,12 @@ https://github.com/cms-dev/cms/releases/download/v1.4.rc1/v1.4.rc1.tar.gz
 >Preparation steps
 ```bash
 # cd cms
-# python3 prerequisites.py install
+# sudo python3 prerequisites.py install
 ```
 >To install CMS and its Python dependencies on Ubuntu
 ```bash
-# python3 setup.py install
-# apt install python3-setuptools python3-tornado python3-psycopg2 \
+# sudo python3 setup.py install
+# sudo apt install python3-setuptools python3-tornado python3-psycopg2 \
      python3-sqlalchemy python3-psutil python3-netifaces python3-crypto \
      python3-six python3-bs4 python3-coverage python3-mock python3-requests \
      python3-werkzeug python3-gevent python3-bcrypt python3-chardet patool \
