@@ -147,8 +147,8 @@ WantedBy=multi-user.target
 # sudo systemctl start ranking.service
 --- Adding admin user for AdminWebServer
 # sudo cmsAddAdmin wisan
+    result: username wisan and password {Password Generated}
 # sudo cmsAdminWebServer
-result: username wisan and password {Password Generated}
 ---Create Contest first shard number #1 on AdminWebServer : http://172.18.111.202:8889
 ---change shard number of contest in /etc/systemd/system/ioi.service at last digit 
 
